@@ -330,7 +330,7 @@ body {
 }
 /* Demo purposes */
 body {
-  font-family: 'Lato';
+  font-family: 'Roboto Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
   line-height: 1.5;
