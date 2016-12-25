@@ -1,0 +1,18 @@
+footer {
+/*   overflow: hidden; */
+  background-color: #ab3b79;
+/*   color: #fff;   */
+}
+footer section {
+/*   width: 90%; */
+  box-sizing: border-box;
+/*   padding: 0 1em; */
+    background-color: #aaa;
+
+}
+@media (min-width: 500px) {
+  footer section {
+    float: left;
+    width: 50%;
+  }
+}
