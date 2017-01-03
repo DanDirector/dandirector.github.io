@@ -2,6 +2,12 @@ body {
   background-color: white;
   }
 
+@media screen and (max-width: 350px){
+  .p35 {
+  color: red;
+  }
+}
+
 @media screen and (max-width: 400px){
   .p4 {
   color: red;
