@@ -8,8 +8,20 @@ body {
   }
 }
 
+@media screen and (max-width: 450px){
+  .p45 {
+  color: red;
+  }
+}
+
 @media screen and (max-width: 500px){
   .p5 {
+  color: red;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .p55 {
   color: red;
   }
 }
@@ -20,14 +32,32 @@ body {
   }
 }
 
+@media screen and (max-width: 650px){
+  .p65 {
+  color: red;
+  }
+}
+
 @media screen and (max-width: 700px){
   .p7 {
   color: red;
   }
 }
 
+@media screen and (max-width: 750px){
+  .p75 {
+  color: red;
+  }
+}
+
 @media screen and (max-width: 800px){
   .p8 {
+  color: red;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .p85 {
   color: red;
   }
 }
