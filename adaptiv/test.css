@@ -2,13 +2,13 @@ body {
   background-color: #eee;
   }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 530px){
   body {
   background-color: #111;
   }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 531px){
   body {
   background-color: #777;
   }
