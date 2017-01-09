@@ -1,0 +1,269 @@
+body {
+  background-color: black;
+  margin: 0px;
+/*   overflow: hidden; */
+}
+
+.card-container{
+  perspective: 1000px;
+  
+}
+
+.card.active {
+  display: none;
+/*   opacity: 0; */
+}
+
+.card {
+    padding: 29px;
+  transition: 2s;
+    display: inline-block;
+  text-align: center;
+  background: hsl(210, 30%, 0%) radial-gradient( hsl(210, 30%, 20%), hsl(210, 30%, 0%));
+  font-size: 3em;
+      font-weight: bold;
+  font-family: Geneva, sans-serif;  
+}
+
+/* .card:hover {
+  transform: rotateY(360deg);
+  transition: 2s cubic-bezier(0.18, 0.94, 0.99, 1);  
+}
+ */
+.card-header, .card-footer {
+  text-transform: uppercase;
+}
+
+.card-header {
+  text-shadow: #bbb 0 0 1px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0,0,0,0.8) 0 30px 25px;
+  color: hsla(0,0%,0%,0);
+}
+
+.card-footer {
+      text-shadow: #111 0 0 1px, rgba(255,255,255,0.1) 0 1px 3px;
+}
+
+.cloud-container {
+  position: relative;
+  height: 296px;
+}
+
+.cloud {
+  position: absolute;
+    width: 200px;
+    height: 200px;
+  z-index: 1;
+  animation: move 2s ease-out;
+  left: 0px;
+}
+
+.cloud-0 {
+  background-color: #fff;
+    width: 100%;
+    height: 40%;
+    border-radius: 50px;
+    bottom: 0px;
+    position: absolute;
+  animation: shadow 2s ease-out;
+  box-shadow: 0px 0px 2px #686868,
+	                 0px 1px 1px #ddd,
+	                 0px 2px 1px #d6d6d6,
+	                 0px 3px 1px #ccc,
+	                 0px 4px 1px #c5c5c5,
+	                 0px 5px 1px #c1c1c1,
+	                 0px 6px 1px #bbb,
+	                 0px 7px 1px #777,
+	                 0px 8px 3px rgba(100, 100, 100, 0.4),
+	                 0px 9px 5px rgba(100, 100, 100, 0.1),
+	                 0px 10px 7px rgba(100, 100, 100, 0.15),
+	                 0px 11px 9px rgba(100, 100, 100, 0.2),
+	                 0px 12px 11px rgba(100, 100, 100, 0.25),
+                	 0px 13px 15px rgba(100, 100, 100, 0.3);
+}
+
+.cloud-1{
+  width: 50%;
+    height: 50%;
+    background-color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    top: 34%;
+    left: 10%;
+}
+
+.cloud-2{
+     background-color: #fff;
+    width: 41%;
+    height: 40%;
+    border-radius: 50px;
+    bottom: 0px;
+    position: absolute;
+    left: 46%;
+    top: 45%;
+}
+
+.cloud.second {
+    width: 100px;
+    height: 100px;
+  animation: move-second 2s ease-out;
+      left: 55%;
+    top: 6px;
+}
+
+.flash {
+  margin: auto;
+  text-alight: center;
+  left: 50%;
+}
+
+.fa-bolt {
+  color: gold;
+/*   transform: translate3d(50%, 50%); */
+    top: 147px;
+    position: absolute;
+    font-size: 126px;
+    left: 70px;
+    z-index: 10;
+    text-shadow: 0px 0px 9px #111;
+    animation: flash 2s ease-out;
+}
+
+.fa-tint {
+  color: white;
+  font-size: 22px;
+}
+
+.rain {
+    width: 180px;
+    height: 100px;
+    top: 183px;
+    left: 31px;
+    position: relative;
+  overflow: hidden;
+  animation: rain-visible 2s;
+}
+
+.rain .item {
+  animation: rain .5s ease-out infinite;
+  position: absolute;
+  display: flex;
+  top: 0px;
+}
+
+.rain .item.i1 {
+  left: 0px;
+}
+
+.rain .item.i2 {
+  left: 83px;
+  animation-delay: 0.4s;
+}
+
+.rain .item.i3 {
+  left: 125px;
+    animation-delay: 0.15s;
+}
+
+.rain .item.i4 {
+  left: 35px;
+    animation-delay: 0.25s;
+}
+
+@keyframes move {
+  0% {
+    left: -500%;
+  }
+  30% {
+    left: 0%;
+    
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0px 0px 2px #686868;
+  }
+  30% {
+    box-shadow: 0px 0px 2px #686868;
+  }
+  100% {
+    box-shadow: 0px 0px 2px #686868,
+	                 0px 1px 1px #ddd,
+	                 0px 2px 1px #d6d6d6,
+	                 0px 3px 1px #ccc,
+	                 0px 4px 1px #c5c5c5,
+	                 0px 5px 1px #c1c1c1,
+	                 0px 6px 1px #bbb,
+	                 0px 7px 1px #777,
+	                 0px 8px 3px rgba(100, 100, 100, 0.4),
+	                 0px 9px 5px rgba(100, 100, 100, 0.1),
+	                 0px 10px 7px rgba(100, 100, 100, 0.15),
+	                 0px 11px 9px rgba(100, 100, 100, 0.2),
+	                 0px 12px 11px rgba(100, 100, 100, 0.25),
+                	 0px 13px 15px rgba(100, 100, 100, 0.3);
+  }
+}
+
+@keyframes move-second {
+  0% {
+    left: 200%;
+    opacity: 0;
+  }
+  20% {
+    opacity: .1;
+  }
+  30% {
+    left: 61%;
+    opacity: 1;
+  }
+  100% {
+    left: 55%;
+  }
+}
+
+@keyframes rain {
+  0% {
+    transform: translate(0%, 0%) rotateZ(-20deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20px, 80px) rotateZ(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    transform:scale(0,0);
+  }
+  80% {
+    transform:scale(0,0);
+    
+  }
+  100% {
+    transform:scale(1,1);
+  }
+}
+
+@keyframes rain-visible {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+button {
+  top: 0px;
+  left: 50%;
+  position: absolute;
+}
