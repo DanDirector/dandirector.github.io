@@ -18,7 +18,7 @@ body {
 .card {
     padding: 29px;
   transition: 2s;
-    display: block;
+/*     display: block; */
   text-align: center;
   background: hsl(210, 30%, 0%) radial-gradient( hsl(210, 30%, 20%), hsl(210, 30%, 0%));
   font-size: 3em;
