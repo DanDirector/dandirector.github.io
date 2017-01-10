@@ -20,6 +20,8 @@ body {
   transition: 2s;
 /*     display: block; */
   text-align: center;
+	width: 300px;
+	margin: auto;
   background: hsl(210, 30%, 0%) radial-gradient( hsl(210, 30%, 20%), hsl(210, 30%, 0%));
   font-size: 3em;
       font-weight: bold;
