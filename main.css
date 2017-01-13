@@ -27,12 +27,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 0px;
+    height: 85px;
     position: absolute;
     margin: auto;
     color: white;
     text-align: center;
-	font-family: 'Poiret One', cursive;
+    font-family: 'Poiret One', cursive;
     font-size: 70px;
 }
 
@@ -54,4 +54,8 @@ body {
 
 .i5 {
 	background-color: #fca95c;
+}
+
+.i6 {
+	background-color: #0783a3;
 }
