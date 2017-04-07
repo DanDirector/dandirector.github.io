@@ -1,202 +1,182 @@
 $(document).ready(function() {
 
-  var animating = false;
+  var $demo = $('.demo');
+  var $items = $('.demo__items');
+  var $line = $('.demo__line');
+  var $printer = $('.printer');
+  var $printerItemCont = $('.printer__item-cont');
 
-  var $body = $(".demo__body");
-  var $content = $(".demo__content");
-  var $line = $(".demo__svg__line");
-  var $smile = $(".demo__svg__smile");
-  var $bgPath = $(".demo__svg-bg__path");
+  var maxDragY = 150;
+  var minDragY = 60;
+  var printerInitY = -90;
+  var dragResistance = 0.6;
+  var deltaY = 0;
+  var printing = false;
 
-  var resetD = "M0,0 C125,0 250,0 375,0 S375,0 375,0 L375,667 0,667z";
-  var smileInit = "M176.61,25 Q187,19 197.39,25";
-  var smileMid = "M176.61,25 Q187,25 197.39,25";
-  var smileEnd = "M176.61,25 Q187,34 197.39,25";
+  var printStep1AT = 0.3;
+  var printStep2Delay = printStep1AT + 0.1;
+  var printStep2AT = 1.8;
+  var printStep3Delay = printStep2Delay + printStep2AT;
+  var printStep3AT = 0.55;
+  var printFullAT = printStep3Delay + printStep3AT;
 
-  var totalLen = $line[0].getTotalLength();
-  var upperLen = 187;
-  var circleLen = totalLen - upperLen;
-  var minLineLen = 60;
-  var lineDragBoundries = upperLen - minLineLen;
-
-  var pullDeltaY = 0;
-  var pullSlowCoef = 1.2;
-  var maxPullY = 150;
-  var minReleaseY = 120;
-  var contentYCoef = 0.4;
-  var maxContentY = maxPullY*contentYCoef;
-  var bodyOffsetX = 0;
-  var bodyW = $body.outerWidth();
-
-  var resetAT = 500;
-  var releaseStep1AT = 800;
-  var releaseWaitTime = 3000;
-
-  var easings = {
-    elastic: function(t,b,c,d) {
-      var ts = (t/=d)*t;
-      var tc = ts*t;
-      return b+c*(33*tc*ts + -106*ts*ts + 126*tc + -67*ts + 15*t);
+  var itemsInfo = [
+    {
+      heading: 'My Twitter',
+      amount: '@NikolayTalanov',
+      amountLink: 'https://twitter.com/NikolayTalanov',
+      info: 'Follow me on Twitter!',
+      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/twitter big icon.png',
+      details: 'How is your day?',
+      when: 'Just now',
+      imgBackColor: '#1DA1F2'
     },
-    inCubic: function(t,b,c,d) {
-      var tc = (t/=d)*t*t;
-      return b+c*(tc);
+    {
+      heading: 'Dribbble Shot',
+      amount: 'Shot by Saptarshi Prakash',
+      amountLink: 'https://dribbble.com/shots/3031884-Pull-to-Refresh-Printer',
+      info: 'Thanks to this guy for cool gif!',
+      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/dribble big icon.png',
+      details: 'Hi!',
+      when: 'It\'s been a while',
+      imgBackColor: '#ea4c89'
+    },
+    {
+      heading: 'Other demos',
+      amount: 'My codepen',
+      amountLink: 'http://codepen.io/suez/',
+      info: 'Check out my other demos',
+      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/codepen big icon.png',
+      details: 'Hola',
+      when: '666 min',
+      imgBackColor: '#000'
     }
-  };
+  ];
+  
+  var itemCounter = 0;
+  var $itemBoilerplate = $('.item--boilerplate');
 
-  function SvgAddClass(el, cl) {
-    var regEx = new RegExp('(?:^|\\s)'+cl+'(?!\\S)', "gi");
-    if (regEx.test(el.attr("class"))) return;
-    el.attr("class", el.attr("class") + " " + cl);
-  };
-
-  function SvgRemoveClass(el, cl) {
-    var regEx = new RegExp('(?:^|\\s)'+cl+'(?!\\S)', "gi");
-    el.attr("class", el.attr("class").replace(regEx, ""));
-  };
-
-  function SvgPathTween(from, to, time, easing) {
-    var regex = /\d+(\.\d{1,2})?/g;
-    var fromD = from.attr("d");
-    var fm = fromD.match(regex);
-    var tm = to.match(regex);
-    var diff = [];
-    for (var i = 0; i < fm.length; i++) {
-      diff.push(+fm[i] - (+tm[i]));
-    }
-    var time = time || 600;
-    var curFrame = 0;
-    var frames = time / 1000 * 60;
-    var easing = easing || "elastic";
-
-    function animate() {
-      if (curFrame > frames) return;
-      var i = 0;
-      var newD = fromD.replace(regex, function(m) {
-        if (+m === 0 || // if nothing changed - skip
-            i % 2 === 0) { // in this demo I want to animate only y values
-          i++;
-          return m;
-        }
-        return +easings[easing](curFrame, +fm[i], 0 - diff[i++], frames).toFixed(2);
-      });
-      from.attr("d", newD);
-      curFrame++;
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-  };
-
-  function pullChange(y, x) {
-    var pullY = (y <= maxPullY) ? y : maxPullY;
-    if (pullY < 0) pullY = 0;
-    var pullCoef = pullY / maxPullY;
-    var sdo = circleLen + pullCoef * lineDragBoundries;
-    var pullYCont = +(pullY*contentYCoef).toFixed(2);
-    var bodyX = parseInt(x - bodyOffsetX, 10);
-    if (bodyX < 0) bodyX = 0;
-    if (bodyX > bodyW) bodyX = bodyW;
-    var leftX = bodyX - 50;
-    if (leftX < 0) leftX = 0;
-    var rightX = bodyX + 50;
-    if (rightX > bodyW) rightX = bodyW;
-
-    $body.css("transform", "translate3d(0,"+ pullY +"px,0)");
-    $content.css("transform", "translate3d(0,"+ pullYCont +"px,0)");
-    $line.css("stroke-dashoffset", sdo);
-
-    $bgPath.attr("d", "M0,0 C"+(leftX-25)+",0 "+(leftX)+","+pullYCont+" "+bodyX+","+pullYCont+" S"+(rightX+25)+",0 375,0 L375,667 0,667z");
-  };
-
-  function reset() {
-    $body.addClass("reset");
-    $content.addClass("reset");
-    SvgAddClass($line, "reset");
-    SvgPathTween($bgPath, resetD);
-
-    setTimeout(function() {
-      $body.removeClass("reset").attr("style", "");
-      $content.removeClass("reset").attr("style", "");
-      SvgRemoveClass($line, "reset");
-      $line.attr("style", "");
-      animating = false;
-    }, resetAT);
-  };
-
-  function performMagic() {
-    $body.addClass("waiting");
-    SvgAddClass($line, "show-circle");
-    SvgPathTween($bgPath, resetD);
-    $content.addClass("reset");
-
-    setTimeout(function() {
-      SvgAddClass($line, "rotating");
-    }, releaseStep1AT*0.32);
-
-    setTimeout(function() {
-      $content.removeClass("reset").attr("style", "");
+  function generateNewItem() {
+    var $item = $itemBoilerplate.clone();
+    var $itemFront = $('.item__front', $item);
+    var data = itemsInfo[itemCounter];
+    itemCounter++;
+    if (itemCounter > 2) itemCounter = 0;
+    
+    $item.removeClass('item--boilerplate');
+    
+    Object.keys(data).forEach(function(prop) {
+      var $el = $('.item__' + prop, $itemFront);
+      var val = data[prop];
       
-      SvgAddClass($smile, "active");
+      if (prop === 'imgBackColor') return;
+      if (prop === 'img') {
+        $el.attr('src', val);
+      } else if (prop === 'amountLink') {
+        $el.attr('href', val);
+      } else {
+        $el.text(val);
+      }
+    });
+    
+    $('.item__back .item__img', $item).css('background', data.imgBackColor);
+    
+    return $item;
+  };
+
+  function insertNewItem() {
+    var $newItem = generateNewItem();
+
+    $printerItemCont.empty();
+    $printerItemCont.append($newItem);
+  };
+  
+  insertNewItem();
+
+  function cloneAndPlacePrintedItem() {
+    var $printedItem = $('.item--in-printer');
+    var $clone = $printedItem.clone();
+    var itemOffsets = $printedItem.offset();
+    var demoOffsets = $demo.offset();
+    var left = itemOffsets.left - demoOffsets.left;
+    var top = itemOffsets.top - demoOffsets.top;
+
+    $clone.removeClass('item--in-printer').addClass('s--cloned');
+    $clone.css({left: left, top: top});
+
+    $demo.append($clone);
+
+    setTimeout(function() {
+      var $finalClone = $clone.clone();
+      $finalClone.attr('style', '');
+      $finalClone.removeClass('s--cloned');
+
+      $items.prepend($finalClone);
+      insertNewItem();
       
       setTimeout(function() {
-        SvgPathTween($smile, smileMid, 300, "inCubic");
-        
-        setTimeout(function() {
-          SvgPathTween($smile, smileEnd, 300, "inCubic");
-          
-          SvgAddClass($smile, "minified");
-        }, 500);
-      }, 700);
-      
-    }, resetAT);
+        $clone.remove();
+      }, 50);
+    }, printStep3AT * 1000);
+  };
+
+  function runPrintAnimation() {
+    $demo.addClass('s--printing');
 
     setTimeout(function() {
-      SvgRemoveClass($line, "rotating");
-      SvgRemoveClass($line, "show-circle");
-      SvgAddClass($line, "reset");
-      $body.removeClass("waiting").addClass("reset");
-
-      setTimeout(function() {
-        $body.removeClass("reset").attr("style", "");
-        SvgRemoveClass($line, "reset");
-        $line.attr("style", "");
-        SvgRemoveClass($smile, "minified");
-        SvgRemoveClass($smile, "active");
-        SvgPathTween($smile, smileInit, 50, "inCubic");
-        animating = false;
-      }, resetAT);
-
-    }, releaseWaitTime);
-
+      cloneAndPlacePrintedItem();
+      $demo.css('top');
+      $demo.addClass('s--printing-step-3');
+    }, printStep3Delay * 1000);
   };
 
-  function release() {
-    animating = true;
-    if (pullDeltaY < minReleaseY) {
-      reset();
-    } else {
-      performMagic();
-    }
-  };
+  $(document).on('mousedown touchstart', '.demo__items', function(e) {
+    if (printing) return;
+    console.log('click touch');
+    var startY = e.pageY || e.originalEvent.touches[0].pageY;
 
-  $(document).on("mousedown touchstart", ".demo__body", function(e) {
-    if (animating) return;
-    var startY =  e.pageY || e.originalEvent.touches[0].pageY;
-    bodyOffsetX = $body.offset().left;
+    $items.addClass('s--no-select');
 
-    $(document).on("mousemove touchmove", function(e) {
+    $(document).on('mousemove touchmove', function(e) {
+      e.preventDefault();
       var y = e.pageY || e.originalEvent.touches[0].pageY;
-      var x = e.pageX || e.originalEvent.touches[0].pageX;
-      pullDeltaY = (y - startY) / pullSlowCoef;
-      if (!pullDeltaY) return;
-      pullChange(pullDeltaY, x);
+      deltaY = (y - startY) * dragResistance;
+
+      if (deltaY < 0) deltaY = 0;
+      if (deltaY > maxDragY) deltaY = maxDragY;
+
+      var progress = deltaY / maxDragY;
+      var printerY = printerInitY * progress * -1;
+
+      $items.css('transform', 'translate3d(0,'+ deltaY +'px,0)');
+      $line.css('transform', 'scaleX('+ Math.sqrt(progress) +')');
+      $printer.css('transform', 'translate3d(0,'+ printerY +'px,0)');
     });
 
-    $(document).on("mouseup touchend", function() {
-      $(document).off("mousemove touchmove mouseup touchend");
-      if (!pullDeltaY) return;
-      release();
+    $(document).on('mouseup touchend', function() {
+      $(document).off('mousemove touchmove mouseup touchend');
+      $items.removeClass('s--no-select');
+      if (!deltaY) return;
+
+      printing = true;
+      var _printAT = printFullAT;
+
+      if (deltaY >= minDragY) {
+        runPrintAnimation();
+      } else {
+        $demo.addClass('s--reset');
+        _printAT = printStep1AT;
+      }
+
+      setTimeout(function() {
+        $demo.removeClass('s--printing s--printing-step-3 s--reset');
+        $items.attr('style', '');
+        $line.attr('style', '');
+        $printer.attr('style', '');
+
+        printing = false;
+        deltaY = 0;
+      }, _printAT * 1000);
     });
   });
 
