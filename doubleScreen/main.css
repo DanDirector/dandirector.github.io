@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+}
+
+.ms-section {
+ display: inline-block;
+ text-align: center;
+ font-family: 'Roboto',sans-serif;
+ font-size: 25px;
+ color: black;
+}
+
+.bold {
+  font-weight: 900;
+  font-size: 65px;
+}
+
+.con-1r {
+  background-color: black;
+  color: white;
+}
+
+.con-2l {
+  background-color: #ffc107; 
+}
+
+.con-2r {
+  color:#ffc107;
+}
+
+.con-3l {
+  color: #ab47bc;
+}
+
+.con-3r {
+  background-color: #ab47bc;
+  color: white;
+}
+
+.con-4l {
+  background-color : #66bb6a;
+  color:white;
+}
+.con-4r {
+  color: #66bb6a;
+}
+.con-5l {
+  color: #ec407a;
+}
+.con-5r{
+  background-color: #ec407a;
+  color: white; 
+}
+
+.con-6l {
+  background-color: #29b6f6;
+  color: white;
+}
+.con-6r {
+  color: #29b6f6;
+}
+.con-7l {
+  color: #ffc107; 
+}
+.con-7r {
+  background-color: #ffc107;
+}
+.con-8r, .con-8l{
+  color: #f44336;
+}
+
+.fa-heart {
+  animation: beat 350ms cubic-bezier(0,.77,1,.4) infinite alternate;
+}
+
+@keyframes beat {
+  0%{
+    transform: scale(0.98);
+  }
+  100%{
+    transform: scale(1.25);
+  }
+}
+
+@media only screen and (max-width: 892px){
+  .bold{
+    font-size: 45px;
+  }
+  .ms-section {
+    font-size: 20px;
+  }
+  
+}
+
+@media only screen and (max-width: 637px){
+  .bold{
+    font-size: 32px;
+  }
+  .ms-section {
+    font-size: 17px;
+  }
+  .special {
+    font-size: 22px;
+  }
+  
+}
