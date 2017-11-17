@@ -3,6 +3,7 @@ body {
   margin: 0;
   background-color: black;
   color: white;
+  font-family: 'Poiret One', cursive;
 }
 .block {
   position: absolute;
@@ -27,4 +28,29 @@ font-size: 47px;
     position: absolute;
     left: 36px;
 }
-.Poiret-One {  font-family: 'Poiret One', cursive;}
+
+.menu {
+  display: none;
+  background-color: black;
+  text-align: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+}
+.open {
+  display: block;
+}
+.menu-item {
+  font-size: 31px;
+    margin: 57px;
+}
+.menu-button {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  z-index: 11;
+}
