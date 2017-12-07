@@ -28,15 +28,15 @@ body {
 
 .midl-block {
   position: absolute;
-    left: 0;
+    left: 60%;
     top: 0;
     margin: auto;
     bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 70px;
-    text-align: center;
-    font-size: 50px;
+    /*right: 0;*/
+    /*width: 50%;*/
+    height: 50%;
+    /*text-align: center;*/
+    font-size: 80px;
 }
 
 .text {
@@ -102,4 +102,28 @@ svg {
 
 .dreams {
   background: url(../img/7e6a349111e917a0087446bc3272448d_shutterstock_382592437.jpg);
+  height: 110vh;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.footer {
+  background: url(../img/44240612_l_1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+@media screen and (max-width: 450px) {
+  .midl-block {
+  left: 0;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    /* width: 50%; */
+    height: 22%;
+    text-align: center;
+    font-size: 46px;
+  }
 }
