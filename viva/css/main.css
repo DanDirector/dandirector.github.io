@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 body {
   margin: 0;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: 'Poiret One', cursive;
 }
 
 .top-block {
   height: 100vh;
   width: 100%;
-  background: url(img/bayleys-decorating-in-cambridge-colortech-recycled-paint.jpg);
+  background: url(../img/bayleys-decorating-in-cambridge-colortech-recycled-paint.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
 }
 .block {
   position: absolute;
@@ -94,7 +97,7 @@ h1{
 }
 svg {
   width: 88px;
-  fill: #fff;
+  fill: #000;
 }
 
 .dreams {
