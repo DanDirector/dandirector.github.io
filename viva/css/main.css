@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Roboto:300,400,500,700');
+
 body {
   margin: 0;
   background-color: white;
   color: black;
-  font-family: 'Poiret One', cursive;
 }
 
-.top-block {
+.section-margin {
+  margin: 50px 0;
+}
+
+.main-screen {
   height: 100vh;
   width: 100%;
   background: url(../img/bayleys-decorating-in-cambridge-colortech-recycled-paint.jpg);
@@ -14,7 +19,9 @@ body {
   background-size: cover;
   background-position: top;
 }
-.block {
+
+.logo-container {
+  font-family: 'Poiret One', cursive;
   position: absolute;
     width: 246px;
     height: 143px;
@@ -26,26 +33,13 @@ body {
     /*border: solid;*/
 }
 
-.midl-block {
-  position: absolute;
-    left: 60%;
-    top: 0;
-    margin: auto;
-    bottom: 0;
-    /*right: 0;*/
-    /*width: 50%;*/
-    height: 50%;
-    /*text-align: center;*/
-    font-size: 80px;
-}
-
-.text {
+.text-top {
 /*   text-align: center; */
   font-size: 100px;
   position: absolute;
 
 }
-.text2{
+.text-bottom {
 font-size: 47px;
     margin-top: 77px;
     position: absolute;
@@ -61,13 +55,16 @@ font-size: 47px;
     position: fixed;
     z-index: 10;
 }
+
 .open {
   display: block;
 }
+
 .menu-item {
   font-size: 31px;
     margin: 57px;
 }
+
 .menu-button {
   position: fixed;
   top: 5%;
@@ -78,13 +75,18 @@ font-size: 47px;
   z-index: 11;
 }
 
-.kitchen {
-  display: block;
-  position: relative;
-  font-size: 20px;
-}
-h1{
-  text-align: center;
+.main-screen-text {
+  font-family: 'Poiret One', cursive;
+  position: absolute;
+    left: 60%;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    /*right: 0;*/
+    /*width: 50%;*/
+    height: 50%;
+    /*text-align: center;*/
+    font-size: 80px;
 }
 
 .card-title {
@@ -94,24 +96,68 @@ h1{
 
 .icon {
   text-align: center;
+  /*margin-top: 77px;*/
 }
 svg {
   width: 88px;
   fill: #000;
 }
 
-.dreams {
-  background: url(../img/7e6a349111e917a0087446bc3272448d_shutterstock_382592437.jpg);
-  height: 110vh;
+
+.dreams{
+   height: 331px;
+   font-size: 32px;
+   text-align: center;
+
+}
+
+.dreams.dreamsLeft {
+  /*background: url(../img/7e6a349111e917a0087446bc3272448d_shutterstock_382592437.jpg);*/
   background-position: bottom;
   background-size: cover;
+}
+
+.dreams.right svg {
+  width: 200px;
 }
 
 .footer {
   background: url(../img/44240612_l_1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
+  height: 100vh;
+}
+
+.headline {
+  font-family: 'Poiret One', cursive;
+  font-size: 50px;
+  margin: 50px 0;
+  text-transform: uppercase;
+}
+
+.aboutUs {
+  font-family: 'Raleway', sans-serif;
+}
+
+.handyman {
+  font-family: 'Roboto', sans-serif;
+}
+
+.teamItem {
+  font-size: 18px;
+    background-color: #f3f3f3;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.teamItem svg {
+  width: 60px;
+}
+
+.team-card-title {
+  font-size: 25px;
+    margin: 27px 0;
 }
 
 @media screen and (max-width: 450px) {
@@ -125,5 +171,24 @@ svg {
     height: 22%;
     text-align: center;
     font-size: 46px;
+  }
+  .dreams {
+    height: 311px;
+    font-size: 32px;
+  }
+  .block {
+    width: 157px;
+    height: 84px;
+    left: 25px;
+    top: 0px;
+  }
+  .text {
+    font-size: 56px;
+    letter-spacing: -5px;
+  }
+  .text2 {
+    font-size: 27px;
+    margin-top: 48px;
+    left: 20px;
   }
 }
