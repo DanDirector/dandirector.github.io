@@ -1,10 +1,63 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Abel|Bad+Script|Cambay|Julius+Sans+One|Kalam|Nothing+You+Could+Do|Quicksand|Shadows+Into+Light+Two');
 
 body {
   margin: 0;
-  background-color: white;
+  background: linear-gradient(90deg, #f5f2ec 0%, #e8e0d1 100%);
+  /*background-color: #e8e0d1;*/
   color: black;
+}
+
+.long-shadow {
+  box-shadow:  1px 1px rgba(181, 155, 107, 0.5) , 2px 2px rgba(184, 159, 113, 0.51) , 3px 3px rgba(187, 163, 118, 0.52) , 4px 4px rgba(189, 166, 123, 0.53) , 5px 5px rgba(192, 169, 128, 0.54) , 6px 6px rgba(194, 172, 133, 0.55) , 7px 7px rgba(196, 175, 137, 0.56) , 8px 8px rgba(198, 178, 140, 0.57) , 9px 9px rgba(200, 180, 144, 0.58) , 10px 10px rgba(201, 182, 148, 0.59) , 11px 11px rgba(203, 185, 151, 0.6) , 12px 12px rgba(204, 187, 154, 0.61) , 13px 13px rgba(206, 189, 157, 0.62) , 14px 14px rgba(207, 190, 159, 0.63) , 15px 15px rgba(208, 192, 162, 0.64) , 16px 16px rgba(210, 194, 164, 0.65) , 17px 17px rgba(211, 195, 167, 0.66) , 18px 18px rgba(212, 197, 169, 0.67) , 19px 19px rgba(213, 198, 171, 0.68) , 20px 20px rgba(214, 200, 173, 0.69) , 21px 21px rgba(215, 201, 175, 0.7) , 22px 22px rgba(216, 202, 177, 0.71) , 23px 23px rgba(217, 203, 179, 0.72) , 24px 24px rgba(218, 205, 180, 0.73) , 25px 25px rgba(218, 206, 182, 0.74) , 26px 26px rgba(219, 207, 184, 0.75) , 27px 27px rgba(220, 208, 185, 0.76) , 28px 28px rgba(221, 209, 186, 0.77) , 29px 29px rgba(221, 210, 188, 0.78) , 30px 30px rgba(222, 211, 189, 0.79) , 31px 31px rgba(223, 211, 190, 0.8) , 32px 32px rgba(223, 212, 192, 0.81) , 33px 33px rgba(224, 213, 193, 0.82) , 34px 34px rgba(225, 214, 194, 0.83) , 35px 35px rgba(225, 215, 195, 0.84) , 36px 36px rgba(226, 215, 196, 0.85) , 37px 37px rgba(226, 216, 197, 0.86) , 38px 38px rgba(227, 217, 198, 0.87) , 39px 39px rgba(227, 217, 199, 0.88) , 40px 40px rgba(228, 218, 200, 0.89) , 41px 41px rgba(228, 219, 201, 0.9) , 42px 42px rgba(229, 219, 202, 0.91) , 43px 43px rgba(229, 220, 203, 0.92) , 44px 44px rgba(229, 220, 204, 0.93) , 45px 45px rgba(230, 221, 205, 0.94) , 46px 46px rgba(230, 222, 205, 0.95) , 47px 47px rgba(231, 222, 206, 0.96) , 48px 48px rgba(231, 223, 207, 0.97) , 49px 49px rgba(231, 223, 208, 0.98) , 50px 50px rgba(232, 224, 208, 0.99);
+}
+
+.shadow1 {
+  box-shadow: 0 4px  4px  rgba(0, 0, 0, .1),
+               0 1px  6px  rgba(0, 0, 0, .05),
+               0 8px  8px  rgba(0, 0, 0, .1), 
+               0 16px 16px rgba(0, 0, 0, .1), 
+               8px 32px 32px rgba(0, 0, 0, .15), 
+               8px 64px 64px rgba(0, 0, 0, .15);
+}
+
+.shadow2 {
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+}
+
+.shadow3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+}
+
+.color-blue {
+  background-color: #67bdc5;
+  color: #d8f2f7;
+}
+
+.color-dark-brown {
+  background-color: #693c00;
+  color: #92b49f;
+}
+
+.color-yellow {
+  background-color: #eda414;
+  color: #8b4800;
+}
+
+.color-light-brown {
+  background-color: #be8e44;
+  color: #633700;
+}
+
+.color-green {
+  background-color: #29d1a0;
+  color: #d6f7f7;
+}
+
+.color-light {
+  background-color: #ebdfb4;
+  color: #4c3408;
 }
 
 .section-margin {
@@ -49,6 +102,7 @@ font-size: 47px;
 .menu {
   display: none;
   background-color: black;
+  color: white;
   text-align: center;
     width: 100vw;
     height: 100vh;
@@ -63,16 +117,24 @@ font-size: 47px;
 .menu-item {
   font-size: 31px;
     margin: 57px;
+    font-family: 'Poiret One', cursive;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
 }
 
 .menu-button {
   position: fixed;
   top: 5%;
   right: 5%;
-  background-color: red;
-  width: 10px;
-  height: 10px;
   z-index: 11;
+  color: black;
+}
+
+.menu-button.active {
+  color: white;
 }
 
 .main-screen-text {
@@ -89,9 +151,20 @@ font-size: 47px;
     font-size: 80px;
 }
 
+.service {
+  padding: 45px;
+}
+
 .card-title {
-  font-size: 30px;
+  /*font-family: 'Kalam', cursive;*/
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: 'Cambay', sans-serif;*/
+  font-size: 23px;
   text-align: center;
+}
+
+.card-title.bottom {
+  font-size: 19px;
 }
 
 .icon {
@@ -105,7 +178,7 @@ svg {
 
 
 .dreams{
-   height: 331px;
+   /*height: 331px;*/
    font-size: 32px;
    text-align: center;
 
@@ -115,6 +188,10 @@ svg {
   /*background: url(../img/7e6a349111e917a0087446bc3272448d_shutterstock_382592437.jpg);*/
   background-position: bottom;
   background-size: cover;
+}
+
+.dreams.dreamsLeft svg {
+  width: 200px;
 }
 
 .dreams.right svg {
@@ -134,19 +211,22 @@ svg {
   font-size: 50px;
   margin: 50px 0;
   text-transform: uppercase;
+  /*color: #E0E0E0;*/
+  text-shadow: -1px 1px 0 rgba(160, 160, 160, 0.1), 1px -1px 0 rgba(255, 255, 255, 0.1), 1px -1px 25px white, 1px 1.9px 1px #a0a0a0, 2px 3.8px 2px #a0a0a0, 3px 5.7px 3px rgba(160, 160, 160, 0.6666666667), 4px 7.6px 4px rgba(160, 160, 160, 0.5), 5px 9.5px 5px rgba(160, 160, 160, 0.4), 6px 11.4px 6px rgba(160, 160, 160, 0.3333333333), 7px 13.3px 7px rgba(160, 160, 160, 0.2857142857), 8px 15.2px 8px rgba(160, 160, 160, 0.25), 9px 17.1px 9px rgba(160, 160, 160, 0.2222222222), 10px 19px 10px rgba(160, 160, 160, 0.2), 11px 20.9px 11px rgba(160, 160, 160, 0.1818181818), 12px 22.8px 12px rgba(160, 160, 160, 0.1666666667), 13px 24.7px 13px rgba(160, 160, 160, 0.1538461538), 14px 26.6px 14px rgba(160, 160, 160, 0.1428571429), 15px 28.5px 15px rgba(160, 160, 160, 0.1333333333), 16px 30.4px 16px rgba(160, 160, 160, 0.125), 17px 32.3px 17px rgba(160, 160, 160, 0.1176470588), 18px 34.2px 18px rgba(160, 160, 160, 0.1111111111), 19px 36.1px 19px rgba(160, 160, 160, 0.1052631579), 20px 38px 20px rgba(160, 160, 160, 0.1), 21px 39.9px 21px rgba(160, 160, 160, 0.0952380952), 22px 41.8px 22px rgba(160, 160, 160, 0.0909090909), 23px 43.7px 23px rgba(160, 160, 160, 0.0869565217), 24px 45.6px 24px rgba(160, 160, 160, 0.0833333333), 25px 47.5px 25px rgba(160, 160, 160, 0.08);
 }
 
 .aboutUs {
   font-family: 'Raleway', sans-serif;
+  font-size: 17px;
 }
 
 .handyman {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
 }
 
 .teamItem {
   font-size: 18px;
-    background-color: #f3f3f3;
     font-family: 'Raleway', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -157,11 +237,31 @@ svg {
 
 .team-card-title {
   font-size: 25px;
-    margin: 27px 0;
+  padding: 20px;
 }
 
-@media screen and (max-width: 450px) {
-  .midl-block {
+footer{
+  background-color: #1d242a;
+}
+footer .fa{
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 26px;
+  padding: 10px;
+}
+.social{
+  text-align: center;
+  padding: 10px;
+}
+.info{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .main-screen-text {
   left: 0;
     top: 0;
     margin: auto;
@@ -172,21 +272,21 @@ svg {
     text-align: center;
     font-size: 46px;
   }
-  .dreams {
+  /*.dreams {
     height: 311px;
     font-size: 32px;
-  }
-  .block {
+  }*/
+  .logo-container {
     width: 157px;
     height: 84px;
     left: 25px;
     top: 0px;
   }
-  .text {
+  .text-top {
     font-size: 56px;
     letter-spacing: -5px;
   }
-  .text2 {
+  .text-bottom {
     font-size: 27px;
     margin-top: 48px;
     left: 20px;
