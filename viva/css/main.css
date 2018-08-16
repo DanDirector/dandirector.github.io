@@ -86,17 +86,38 @@ body {
     /*border: solid;*/
 }
 
-.text-top {
-/*   text-align: center; */
-  font-size: 100px;
+.logo-left {
   position: absolute;
+    background-color: black;
+    color: white;
+    font-size: 34px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+  }
+
+.logo-animation {
+  -webkit-animation-name: flip;
+  animation-name: flip;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.text-top {
+    font-size: 27px;
+    left: 54px;
+    line-height: 0.9;
+    position: absolute;
 
 }
 .text-bottom {
-font-size: 47px;
-    margin-top: 77px;
+font-size: 27px;
+    margin-top: 9px;
     position: absolute;
-    left: 36px;
+    left: 55px;
 }
 
 .menu {
@@ -139,16 +160,40 @@ font-size: 47px;
 
 .main-screen-text {
   font-family: 'Poiret One', cursive;
-  position: absolute;
-    left: 60%;
+    position: absolute;
+    right: 15%;
     top: 0;
     margin: auto;
     bottom: 0;
-    /*right: 0;*/
-    /*width: 50%;*/
-    height: 50%;
-    /*text-align: center;*/
-    font-size: 80px;
+    height: 33%;
+    font-size: 72px;
+    line-height: 1;
+}
+
+.changeWord {
+  display: inline;
+}
+
+.changeWord span{
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  animation: rotateWordsSecond 12s linear infinite 0s;
+  color: #67bdc5;
+}
+
+.changeWord span:nth-child(2) { 
+  animation-delay: 3s; 
+  color: #eda414;
+}
+.changeWord span:nth-child(3) { 
+  animation-delay: 6s; 
+  color: #be8e44; 
+}
+.changeWord span:nth-child(4) { 
+  animation-delay: 9s; 
+  color: #29d1a0;
 }
 
 .service {
@@ -260,23 +305,53 @@ footer .fa{
   padding: 10px;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 @media screen and (max-width: 950px) {
   .main-screen-text {
-  left: 0;
+  /*left: 0;
     top: 0;
     margin: auto;
     bottom: 0;
     right: 0;
-    /* width: 50%; */
     height: 22%;
-    text-align: center;
-    font-size: 46px;
+    text-align: center;*/
+    font-size: 40px;
+  }
+
+  .menu-button {
+    top: 13px;
+  }
+
+  .logo-left {
+    font-size: 28px;
+    width: 37px;
+    height: 37px;
+  }
+
+  .logo-container {
+    margin: 5px;
+    left: 0;
+    top: 0;
+  }
+
+  .text-top {
+    font-size: 23px;
+    left: 45px;
+    line-height: 0.7;
+  }
+
+  .text-bottom {
+    font-size: 23px;
+    margin-top: 7px;
+    left: 45px;
   }
   /*.dreams {
     height: 311px;
     font-size: 32px;
   }*/
-  .logo-container {
+
+  /*.logo-container {
     width: 157px;
     height: 84px;
     left: 25px;
@@ -290,5 +365,105 @@ footer .fa{
     font-size: 27px;
     margin-top: 48px;
     left: 20px;
+  }*/
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+@-webkit-keyframes flip {
+  from {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
+  8% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  10% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  16% {
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes flip {
+  from {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  8% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  10% {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  16% {
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  to {
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes rotateWordsSecond {
+    0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
+    10% { opacity: 0.3; width: 0px; }
+  20% { opacity: 1; width: 100%; }
+    27% { opacity: 0; width: 100%; }
+    100% { opacity: 0; }
 }
