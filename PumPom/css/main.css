@@ -1,0 +1,219 @@
+.font-lato{
+  font-family: 'Lato';
+  margin-top: 48px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.font-badscript{
+  font-family: 'Bad Script';
+  font-size: 58px;
+      margin-bottom: -10px;
+}
+
+.font-gtw{
+  font-family: 'gnutypewriter';
+  font-size: 38px;
+  margin-bottom: 45px;
+}
+.font-zhizn{
+  font-family: 'Zhizn';
+  font-size: 23px;
+}
+
+.card .fa{
+  font-size: 4em;
+    margin-bottom: 14px;
+    margin-top: 52px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.heder {
+  overflow: auto;
+  
+}
+
+.telephon{
+  float: right;
+  margin: 20px;
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+/*.telephon:after {
+  content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}*/
+
+
+
+/*--------------------------------start logo*/
+
+.logocontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  /*height: 28em;*/
+  overflow: hidden;
+  padding: 48px 0px;
+  background-color: #fff;
+}
+
+.logo {
+  -webkit-animation: wobble 5s ease-in-out infinite;
+          /*animation: wobble 5s ease-in-out infinite;*/
+}
+
+@-webkit-keyframes wobble {
+  from, to {
+    -webkit-transform: rotateY(-45deg);
+            transform: rotateY(-45deg);
+  }
+  50% {
+    -webkit-transform: rotateY(45deg);
+            transform: rotateY(45deg);
+  }
+}
+
+@keyframes wobble {
+  from, to {
+    -webkit-transform: rotateY(-45deg);
+            transform: rotateY(-45deg);
+  }
+  50% {
+    -webkit-transform: rotateY(45deg);
+            transform: rotateY(45deg);
+  }
+}
+.logo span {
+  /*-webkit-animation: 5s ease-in-out infinite;*/
+          animation: 5s ease-in-out infinite;
+  /*color: transparent;
+  text-shadow: 0 0 1px #000; */ 
+  line-height: 1.1;
+}
+.logo .top span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 68px;
+  font-weight: 300;
+  color: transparent;
+  text-shadow: 0 0 1px #000;
+}
+.logo .bottom {
+  text-align: center;
+}
+.logo .bottom span {
+  font-size: 12px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+.logo span:nth-child(-n+3) {
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+
+.logo span:nth-child(1),
+.logo span:nth-last-child(1) {
+  -webkit-animation-name: blur-1;
+          animation-name: blur-1;
+}
+
+@-webkit-keyframes blur-1 {
+  50% {
+    text-shadow: 0 0 0.15em #000;
+  }
+}
+
+@keyframes blur-1 {
+  50% {
+    text-shadow: 0 0 0.15em #000;
+  }
+}
+.logo span:nth-child(2),
+.logo span:nth-last-child(2) {
+  -webkit-animation-name: blur-2;
+          animation-name: blur-2;
+}
+
+@-webkit-keyframes blur-2 {
+  50% {
+    text-shadow: 0 0 0.075em #000;
+  }
+}
+
+@keyframes blur-2 {
+  50% {
+    text-shadow: 0 0 0.075em #000;
+  }
+}
+.logo span:nth-child(3),
+.logo span:nth-last-child(3) {
+  -webkit-animation-name: blur-3;
+          animation-name: blur-3;
+}
+
+@-webkit-keyframes blur-3 {
+  50% {
+    text-shadow: 0 0 0.05em #000;
+  }
+}
+
+@keyframes blur-3 {
+  50% {
+    text-shadow: 0 0 0.05em #000;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo .top span {
+    font-size: 140px;
+  }
+  .logo .bottom span{
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .logocontainer {
+  padding: 148px 0px;
+  }
+}
+/*----------------------------------end ot logo*/
+
+footer{
+  background-color: #1d242a;
+}
+footer .fa{
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 26px;
+  padding: 10px;
+}
+.social{
+  text-align: center;
+  padding: 10px;
+}
+.info{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  padding: 10px;
+}

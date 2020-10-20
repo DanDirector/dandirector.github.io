@@ -21,6 +21,10 @@ $(document).ready(function(){
    $('.menu').toggle();
   });
 
+  $('#buy').click(function() {
+   $('.buy-page').toggle();
+  });
+
 });
 
 
